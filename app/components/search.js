@@ -1,6 +1,8 @@
 const React = require('react')
 const globalEmitter = require('../lib/globalEmitter')
-const keyboard = require('../lib/keyboard')
+const Keyboard = require('../lib/keyboard')
+const keyboard = new Keyboard('search')
+
 const mergeUnique = require('../lib/mergeUnique')
 
 const Search = React.createClass({
@@ -75,6 +77,7 @@ const Search = React.createClass({
 
   componentWillUnmount () {
     globalEmitter.removeListener('hideWindow', this.handleSaveQuery)
+    keyboard.reset()
   },
 
   componentDidUpdate () {

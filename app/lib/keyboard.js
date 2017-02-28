@@ -1,13 +1,17 @@
-const Mousetrap = require('mousetrap')
+const MousetrapManager = require('./mousetrapManager')
 
 class Keyboard {
-  constructor () {
+  constructor (name) {
     this.events = {}
   }
 
   emit (key) {
     if (!this.events[key]) return
-    this.events[key].forEach((cb) => cb())
+    this.events[key].forEach((obj) => obj['cb']())
+  }
+
+  reset () {
+    MousetrapManager.unbind(this.name)
   }
 
   bind (keys, cb) {
@@ -15,7 +19,7 @@ class Keyboard {
     keysArray.forEach((key) => {
       if (!this.events[key]) {
         this.events[key] = []
-        Mousetrap.bind(key, () => {
+        MousetrapManager.bind(key, this.name, () => {
           this.emit(key)
         })
       }
@@ -24,4 +28,4 @@ class Keyboard {
   }
 }
 
-module.exports = new Keyboard()
+module.exports = Keyboard

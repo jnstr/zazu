@@ -4,6 +4,7 @@ module.exports = {
     "plugins": [ "react" ],
     "parserOptions": {
         "ecmaFeatures": {
+            "classes": true,
             "jsx": true,
         },
     },

@@ -1,5 +1,6 @@
 const React = require('react')
-const keyboard = require('../lib/keyboard')
+const Keyboard = require('../lib/keyboard')
+const keyboard = new Keyboard('results')
 
 const Result = require('./result')
 const IFrame = require('./iframe')
