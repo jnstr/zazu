@@ -12,7 +12,7 @@ class MousetrapManager {
     Object.keys(this.events).forEach((key) => {
       this.events[key].forEach((el, i) => {
         if (el['name'] === name) {
-          this.events[key].splice(i,1)
+          this.events[key].splice(i, 1)
         }
       })
     })

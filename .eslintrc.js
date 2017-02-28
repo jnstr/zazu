@@ -1,4 +1,5 @@
 module.exports = {
+    "parser": "babel-eslint",
     "extends": ["standard", "plugin:react/recommended"],
     "rules": { "comma-dangle": [2, "always-multiline"] },
     "plugins": [ "react" ],

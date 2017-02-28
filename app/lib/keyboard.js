@@ -2,6 +2,7 @@ const MousetrapManager = require('./mousetrapManager')
 
 class Keyboard {
   constructor (name) {
+    this.name = name
     this.events = {}
   }
 
